@@ -2,8 +2,11 @@ package com.practice.java.dao;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class StudentRepo {
+	
+	public static Supplier<Student> supplier = () -> (new Student("Adam",2,3.6,"male",Arrays.asList("Swimming","basketball")));
 
 	public static List<Student> getAllStudents(){
 		

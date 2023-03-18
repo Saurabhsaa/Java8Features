@@ -10,6 +10,14 @@ public class Student {
 	String gender;
 	
 	List<String> activities;
+	
+	public Student(){
+		
+	}
+	
+	public Student(String name) {
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;
@@ -49,6 +57,10 @@ public class Student {
 
 	public void setActivities(List<String> activities) {
 		this.activities = activities;
+	}
+	
+	public void printActivities() {
+		System.out.println(activities);
 	}
 
 	public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
