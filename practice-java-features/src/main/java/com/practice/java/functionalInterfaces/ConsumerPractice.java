@@ -1,4 +1,4 @@
-package com.practice.java.consumers;
+package com.practice.java.functionalInterfaces;
 
 import java.util.function.Consumer;
 
