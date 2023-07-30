@@ -34,6 +34,10 @@ public class TerminalGroupingByExample {
 				.collect(Collectors.groupingBy(Student::getGradeLevel, Collectors.summingInt(i -> i.getBooks())));
 	}
 	
+	public static Map<String, Map<Integer, List<Student>>> multiLevelGroupingWithTreeMap() {
+		return StudentRepo.getAllStudents().stream().collect(Collectors.groupingBy(Student::getGender,TreeMap::new,Collectors.groupingBy(Student::getGradeLevel,TreeMap::new,Collectors.toList())));
+	}
+	
 	public static TreeMap<String, Integer> threeArgGroupingBy() {
 		return StudentRepo.getAllStudents().stream().collect(
 				Collectors.groupingBy(Student::getGender, TreeMap::new, Collectors.summingInt(i -> i.getBooks())));
@@ -58,15 +62,17 @@ public class TerminalGroupingByExample {
 
 //		System.out.println(goupingByCustome());
 		
-		System.out.println(twoLevelGrouping());
+//		System.out.println(twoLevelGrouping());
 		
-		System.out.println(twoLevelGrouping_1());
+//		System.out.println(twoLevelGrouping_1());
 		
 //		System.out.println(threeArgGroupingBy());
 		
-//		System.out.println(groupingAndCollectingAndThen());
+		System.out.println(groupingAndCollectingAndThen());
 	
 //		System.out.println(groupingAndCollectingAndThen_1());
+		
+//		System.out.println(multiLevelGroupingWithTreeMap());
 	}
 	
 }

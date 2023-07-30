@@ -28,8 +28,10 @@ public class RevisionStreams {
 		
 		Set<String> set = new HashSet<>();
 		
+		//remove duplicates from group
 		System.out.println(li.stream().filter(i->!set.add(i)).collect(Collectors.toSet()));
 		
+		// remove duplicates from stream
 		System.out.println( li.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
 				.filter(item -> item.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList()));
 		
@@ -51,6 +53,7 @@ public class RevisionStreams {
 		
 		Stream.generate(Math::random).limit(10);
 		
+		//reverse a stream
 		Stream.of(1,2,3,5,6,7).collect(Collectors.collectingAndThen(Collectors.toList(), list -> {
 			Collections.reverse(list);
 			return list.stream();
